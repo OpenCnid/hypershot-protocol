@@ -61,7 +61,7 @@ invocations, will this exact token appear identically in all hundred?*
 
 ```bash
 git clone https://github.com/OpenCnid/hypershot-protocol.git
-cp -r hypershot-protocol ~/.claude/skills/hypershot-protocol
+cp -r hypershot-protocol/.claude/skills/hypershot-protocol ~/.claude/skills/
 ```
 
 Or install it with the rest of the stack:
