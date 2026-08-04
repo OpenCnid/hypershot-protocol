@@ -61,8 +61,29 @@ invocations, will this exact token appear identically in all hundred?*
 
 ```bash
 git clone https://github.com/OpenCnid/hypershot-protocol.git
+mkdir -p ~/.claude/skills
 cp -r hypershot-protocol/.claude/skills/hypershot-protocol ~/.claude/skills/
 ```
+
+> **The `mkdir -p` is load-bearing — do not delete it as noise.** If
+> `~/.claude/skills` does not exist yet, `cp` reads that final path as a name to
+> copy *to* rather than a directory to copy *into*, and unpacks the skill's
+> contents directly into `skills/` — no `hypershot-protocol/` directory. It
+> prints nothing and exits 0. The skill simply never loads, and nothing says why.
+
+On Windows, in PowerShell:
+
+```powershell
+git clone https://github.com/OpenCnid/hypershot-protocol.git
+New-Item -ItemType Directory -Force -Path ~\.claude\skills
+Copy-Item -Recurse -Force hypershot-protocol\.claude\skills\hypershot-protocol ~\.claude\skills\
+```
+
+`-Force` on the `Copy-Item` is what makes a second run an upgrade instead of an
+"item with the specified name already exists" failure.
+
+If `CLAUDE_CONFIG_DIR` is set it replaces `~/.claude`, so install into
+`$CLAUDE_CONFIG_DIR/skills` instead.
 
 Or install it with the rest of the stack:
 [OpenCnid/dovetail](https://github.com/OpenCnid/dovetail).
