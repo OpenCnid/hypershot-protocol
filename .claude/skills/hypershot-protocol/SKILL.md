@@ -48,7 +48,7 @@ Past pure spread, the variable name should describe *how to generate*, not just 
 - Weak: `{Response}`
 - Hyper: `{Concise_Action_Oriented_Reply_With_No_Fluff}`
 
-Underscores-as-spaces keep the name parseable as one token-position while carrying a full descriptive phrase. Treat the name as a tiny embedded prompt.
+Underscores-as-spaces keep a full phrase parseable as one token-position. Treat the name as a tiny embedded prompt.
 
 ### Rule C: Make the structure visible
 The frame is the other half of the hypershot; if the structure is not legible, the variables cannot work. Use markdown (headings, lists, code fences, blockquotes), explicit brackets around variables, and intentional whitespace so the shape reads at a glance.
@@ -111,7 +111,7 @@ Before shipping a hypershot:
 
 ## 6. Where examples live: invariants at the system layer, data downstream
 
-The rule is not "never use concrete examples." It is that **concrete content that varies across invocations must not live at the system layer** — primacy turns anything there into a prior for everything after, so variant up-front content contaminates the whole session's distribution.
+The rule is not "never use concrete examples." It is that **concrete content that varies across invocations must not live at the system layer** — primacy (§ 1) makes variant up-front content contaminate the whole session's distribution.
 
 Split by *layer*:
 
@@ -144,7 +144,7 @@ The names are invariant — not examples of *what to generate* but the system's 
 Wrong: concrete voice samples in the system prompt ("Match this style: [three paragraphs of the author]") — primacy contaminates every later response, even off-task. Right: describe the voice's *shape* up-front via an instruction-bearing variable, `{Direct_Sentences_With_Active_Voice_And_No_Hedging}`, and ship the concrete samples downstream as task-bound reference, dropped when the writing job completes.
 
 ### Ground blocks: an expected finding is a filled-in example
-Context assembled for another agent takes the same argument as a frame: it carries the facts that agent cannot derive cold and needs in order to look. What you believe it will find is a filled-in example of the answer — it leaks into the response distribution and comes back as the agent's finding, most of all when true, since no report separates a returned expectation from a result; the probe that produced it is the same contamination in method's clothes. One question sorts them: *does this let the agent look, or does it tell the agent what looking will turn up?* An expectation has no layer, so it goes to the collaborator instead (your repository's `AMBIENT.md` ask-the-collaborator rule — rule 5 in Recursus, 21(a) in Trellis; `spark-steering` § *Ask first — the un-tool*, manual-invoke only).
+Context assembled for another agent takes the same argument as a frame: it carries the facts that agent cannot derive cold and needs in order to look. What you believe it will find is a filled-in example of the answer — it leaks into the response distribution and comes back as the agent's finding, most of all when true; the probe that produced it falls on the same side. One question sorts them: *does this let the agent look, or does it tell the agent what looking will turn up?* An expectation has no layer — neither system nor data — so it goes to the collaborator instead: end the turn and ask (`spark-steering` § *Ask first — the un-tool*, manual-invoke only). Why, in full: the prompt-engineering skill, best practice 6.
 
 ### When hypershots are not the tool
 - **Purely declarative tasks** — "What is the capital of France?" gains nothing from a frame. Use plain instruction.
