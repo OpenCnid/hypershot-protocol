@@ -1,0 +1,12 @@
+{
+  "name": "hypershot-protocol",
+  "description": "Meta-prompting technique using zero-contamination structural examples: a frame with free variables ranging from unbounded spread operators to fully-loaded instruction-bearing variables.",
+  "version": "0.1.0",
+  "author": {
+    "name": "OpenCnid Labs",
+    "url": "https://github.com/OpenCnid"
+  },
+  "homepage": "https://github.com/OpenCnid/hypershot-protocol",
+  "repository": "https://github.com/OpenCnid/hypershot-protocol",
+  "license": "CC-BY-4.0"
+}
